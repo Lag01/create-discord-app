@@ -35,7 +35,7 @@ class Client extends ErisClient {
                 });
             });
         });
-    }
+   
 
     registerEvents() {
         fs.readdir(this.eventsDir, (error, events) => {
@@ -57,11 +57,11 @@ class Client extends ErisClient {
         return this.commands.get(name) || this.commands.get(this.aliases.get(name));
     }
 
-    login(token = null) {
+    login() {
         this.registerCommands();
         this.registerEvents();
 
-        return super.connect(token);
+        return super.connect();
     }
 
 }
